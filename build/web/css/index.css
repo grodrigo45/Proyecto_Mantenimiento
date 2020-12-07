@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,400&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    background-image: url("../img/wallpaper.jpg");
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginImg img {
+    width: 700px;
+    height: 700px;
+    border-radius: 12px;
+
+}
+
+.login {
+    width: 700px;
+    height: 700px;
+    background: #ffffff;
+    display: flex;
+    flex-flow: column nowrap;
+    border-radius: 12px;
+
+}
+
+.tituloLogin {
+    font-family: 'Lato Black', sans-serif;
+    margin: 100px 0 0 0;
+    text-align: center;
+    font-size: 50px;
+}
+
+.subtituloLogin {
+    margin: 50px 0 0 0;
+    text-align: center;
+    font-size: 17px;
+    color: #000000a1;
+
+}
+
+.containerForm {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.usuarioLogin,
+.passwordLogin {
+    width: 450px;
+    height: 50px;
+    border-radius: 12px;
+    outline: none;
+    border: 1px solid #dfdfdf;
+    margin: 17px auto;
+    padding: 10px;
+}
+
+input[type=submit] {
+    width: 150px;
+    height: 50px;
+    margin: 50px auto;
+    text-align: center;
+    background-color: #2dcb70;
+    outline: none;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.card-2 {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+
+@media screen
+and (min-device-width: 1366px)
+and (max-device-width: 1500px)
+and (-webkit-min-device-pixel-ratio: 1) {
+
+    .loginImg img {
+        width: 570px;
+        height: 570px;
+        border-radius: 12px;
+    }
+
+    .login {
+        width: 570px;
+        height: 570px;
+        background: #ffffff;
+        display: flex;
+        flex-flow: column nowrap;
+        border-radius: 12px;
+
+    }
+
+    .subtituloLogin {
+        margin: 25px 0 0 0;
+        text-align: center;
+        font-size: 17px;
+        color: #000000a1;
+
+    }
+}
+
+/*ANIMACION*/
+
+.slide-in-blurred-top {
+    animation: slide-in-blurred-top 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+@keyframes slide-in-blurred-top {
+    0% {
+        transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+        transform-origin: 50% 0;
+        filter: blur(40px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) scaleY(1) scaleX(1);
+        transform-origin: 50% 50%;
+        filter: blur(0);
+        opacity: 1;
+    }
+}

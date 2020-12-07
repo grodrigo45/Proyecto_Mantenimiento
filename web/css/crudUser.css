@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,400&display=swap");
+
+* {
+    font-family: 'Lato', sans-serif;
+    padding: 0;
+    margin: 0;
+
+}
+
+/*
+*::-webkit-scrollbar {
+    width: 12px;
+}
+*::-webkit-scrollbar-track {
+    background: #dfdfdf;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #eeeeee;
+    border-radius: 20px;
+    border: 1px solid #dfdfdf;
+}
+*/
+
+
+body {
+    background-color: #f8f8f8;
+    overflow-y: hidden;
+}
+
+.navMenu {
+    width: 97%;
+    height: 50px;
+    margin: 17px auto;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px;
+    border-radius: 17px;
+    background-color: #fff;
+}
+
+.navMenu a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+
+.navMenu img {
+    width: 50px;
+    height: 50px;
+}
+
+.link-1 {
+    position: relative;
+}
+
+.calendar {
+    position: absolute;
+    background-color: #fff;
+    width: 250px;
+    border-radius: 7px;
+}
+
+.calendar a {
+    margin: 25px 0 0 0;
+    text-decoration: none;
+    color: black;
+    display: none;
+    padding: 12px;
+}
+
+.link-1:hover .calendar a {
+    display: block;
+}
+
+.link-1:hover .calendar {
+    animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+.title {
+    margin: 57px 0 12px 112px;
+}
+
+/*Haciendo código de las cajas de información*/
+.menu-box {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 57px 0 0 0;
+}
+
+.box1, .box2, .box3, .box4 {
+    background-color: #fff;
+    width: 300px;
+    height: 110px;
+    border-radius: 17px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.box1 img, .box2 img, .box3 img, .box4 img {
+    width: 70px;
+    height: 70px;
+}
+
+.boxTxt p {
+    font-size: 17px;
+    color: #5b5b5b;
+}
+
+/* Código de la tabla */
+.table {
+    margin: 57px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    height: 50vh;
+}
+
+.table table {
+    width: 87%;
+    position: relative;
+    border-spacing: 0 1.5rem;
+}
+
+.table th, .table td {
+    height: 27px;
+    background-color: #fff;
+    padding: 17px;
+    border: none;
+    text-align: center;
+}
+
+.table th {
+    background-color: #eeeeee;
+    position: sticky;
+    top: 0;
+}
+
+@media screen
+and (min-device-width: 1366px)
+and (max-device-width: 1500px)
+and (-webkit-min-device-pixel-ratio: 1) {
+
+    .title {
+        margin: 25px 0 0 50px;
+    }
+
+    .menu-box {
+        margin: 25px 0 0 0;
+    }
+
+    .box1, .box2, .box3, .box4 {
+        width: 250px;
+        height: 100px;
+    }
+
+    .box1 img, .box2 img, .box3 img, .box4 img {
+        padding: 7px;
+        width: 50px;
+        height: 50px;
+    }
+    .table {
+        margin: 25px 0 0 0;
+        height: 45vh;
+    }
+
+    .table th, .table td {
+        height: 10px;
+        background-color: #fff;
+        padding: 12px;
+        text-align: center;
+    }
+
+    .table th {
+        background-color: #eeeeee;
+    }
+
+}
+
+/* Colores de estado, clases para ello*/
+
+.enProceso {
+    margin: auto;
+    text-align: center;
+    padding: 5px;
+    width: 100px;
+    height: 20px;
+    background-color: #f39c12;
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.finalizado {
+    margin: auto;
+    padding: 5px;
+    width: 100px;
+    height: 20px;
+    background-color: #2ecc71;
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.sinIniciar {
+    text-align: center;
+    margin: auto;
+    padding: 5px;
+    width: 100px;
+    height: 20px;
+    background-color: #e74c3c;
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+
+/* Librería para las box shadows */
+.bShadow-1, .bShadow-1h:hover {
+    box-shadow: rgba(150, 150, 150, 0.1) 0 0 20px 0;
+}
+
+.bShadow-2, .bShadow-2h:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0 20px 60px -10px;
+}
+
+.bShadow-3, .bShadow-3h:hover {
+    box-shadow: rgba(0, 0, 0, 0.09) 0 6px 9px 0;
+}
+
+.bShadow-4, .bShadow-4h:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0 5px 20px 0;
+}
+
+.bShadow-5, .bShadow-5h:hover {
+    box-shadow: rgba(0, 0, 0, 0.12) 0 3px 13px 1px;
+}
+
+.bShadow-6, .bShadow-6h:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0 15px 35px 0, rgba(0, 0, 0, 0.07) 0 3px 10px 0;
+}
+
+.bShadow-7, .bShadow-7h:hover {
+    box-shadow: rgba(57, 70, 78, 0.15) 0 0 1px 0, rgba(57, 70, 78, 0.25) 0 20px 55px -8px;
+}
+
+.outAnimation {
+    animation: slide-out-elliptic-top-bck 0.7s ease-in both;
+}
+
+/* hover animations */
+@keyframes flip-in-hor-bottom {
+    0% {
+        transform: rotateX(80deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateX(0);
+        opacity: 1;
+    }
+}

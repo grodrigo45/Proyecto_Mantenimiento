@@ -1,0 +1,117 @@
+* {
+    font-family: 'Ubuntu', serif;
+    overflow-y: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* MENU VERTICAL */
+
+.verticalMenu {
+    position: fixed;
+    left: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 100vh;
+    width: 250px;
+    background-color: #f8f8f8;
+}
+
+.verticalMenu .menu-item a {
+    font-size: 17px;
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 25px;
+}
+
+.menu-item {
+    height: 50px;
+    display: flex;
+    flex-flow: row;
+    margin-left: 35px;
+}
+
+.menu-item img {
+    width: 25px;
+    height: 25px;
+}
+
+.userInfo {
+    width: 70%;
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Foto de perfil, nombre y dirección */
+.dataUser {
+    width: 100%;
+    display: flex;
+    flex: 1;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.dataUser img {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+}
+.description .name {
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 25px;
+}
+
+.description .city {
+    font-size: 17px;
+    color: #00000080;
+    margin-left: 27px;
+}
+
+/*Datos completos*/
+
+.editUserData {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.handleInput {
+    margin: 25px;
+    padding: 10px;
+}
+
+.handleInput input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+    border: 1px solid rgba(78, 78, 78, 0.5);
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+
+/* Sombras */
+.bShadow-1, .bShadow-1h:hover {
+    box-shadow: rgba(150, 150, 150, 0.1) 0 0 20px 0;
+}
+
+.bShadow-5, .bShadow-5h:hover {
+    box-shadow: rgba(0, 0, 0, 0.12) 0 3px 13px 1px;
+}

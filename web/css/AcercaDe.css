@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,400&display=swap");
+
+* {
+    font-family: 'Lato', sans-serif;
+    padding: 0;
+    margin: 0;
+
+}
+
+body {
+    background-color: #f8f8f8;
+    overflow-y: hidden;
+}
+
+.navMenu {
+    width: 97%;
+    height: 50px;
+    margin: 17px auto;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px;
+    border-radius: 17px;
+    background-color: #fff;
+}
+
+.navMenu a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+
+.navMenu img {
+    width: 50px;
+    height: 50px;
+}
+
+.link-1 {
+    position: relative;
+}
+
+.calendar {
+    position: absolute;
+    background-color: #fff;
+    width: 250px;
+    border-radius: 7px;
+}
+
+.calendar a {
+    margin: 25px 0 0 0;
+    text-decoration: none;
+    color: black;
+    display: none;
+    padding: 12px;
+}
+
+.link-1:hover .calendar a {
+    display: block;
+}
+
+.link-1:hover .calendar {
+    animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+.title {
+    margin: 57px 0 12px 112px;
+}
+
+/*Haciendo código de las cajas de información*/
+.menu-box {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 57px 0 0 0;
+}
+.AcercaDe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*padding-top: 100px;*/
+}
+
+.AcercaDe__img img{
+    width: 100px;
+    height: 100px;
+}
+
+.AcercaDe__Contenido{
+    padding-bottom: 30px;
+}
+.AcercaDe__Contenido p{
+    padding-top: 25px;
+    text-align: center;
+}
+
+footer{
+    max-height: auto;
+    display: flex;
+    margin-left: 90px;
+}
+.AcercaDe__footer img{
+    width: 80px;
+    height: 80px;
+    margin-right: 120px;
+}
