@@ -10,6 +10,11 @@ public class EmpleadosBean {
     private int totalEmpleados;
     private int totalTrabajos;
 
+//    Cajas
+    private int realizado;
+    private int estudio;
+    private int tipo;
+
     public void setTotalTrabajos(int totalTrabajos) {
         this.totalTrabajos = totalTrabajos;
     }
@@ -30,10 +35,10 @@ public class EmpleadosBean {
 //        constructor vacío
 
     }
-    
-    public EmpleadosBean (int totalEmpleados) {
+
+    public EmpleadosBean(int totalEmpleados) {
         this.totalEmpleados = totalEmpleados;
-    
+
     }
 
     public int getIdEmpleado() {
@@ -75,7 +80,7 @@ public class EmpleadosBean {
     public void setIdPersona(int idPersona) {
         this.idPersona = idPersona;
     }
-    
+
     public void setTotalEmpleados(int totalEmpleados) {
         this.totalEmpleados = totalEmpleados;
     }
@@ -84,4 +89,29 @@ public class EmpleadosBean {
         return totalEmpleados;
     }
     
+    
+//    Cajas
+    public int getRealizado() {
+        return realizado;
+    }
+
+    public void setRealizado(int realizado) {
+        this.realizado = realizado;
+    }
+
+    public int getEstudio() {
+        return estudio;
+    }
+
+    public void setEstudio(int estudio) {
+        this.estudio = estudio;
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
 }

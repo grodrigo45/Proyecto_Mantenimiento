@@ -8,42 +8,49 @@
     </head>
     <body>
         <nav class="navMenu bShadow-2">
-        <img src="https://www.flaticon.com/svg/static/icons/svg/3571/3571518.svg" alt="ICON">
-           <div class="link-1 ">
-        <a href="Principal?accion=mostrar">Actividades</a>
-        <div class="calendar bShadow-3 ">
-            <a href="calendario.jsp">Agregar</a>
-        </div>
-        </div>
-    
-          <div class="link-1">
-        <a href="Equipos.jsp">Productos</a>
-        <div class="calendar bShadow-3 ">
-            <a href="Principal?accion=insertar">Agregar Producto</a>
-            <a href="Principal?accion=eliminar">Eliminar Producto</a>
-            <a href="Principal?accion=modificar">Actualizar Producto</a>
-        </div>
-    </div>
-        </div>
-    
-        <div class="link-1">
-            <a href="#">Clientes</a>
-            <div class="calendar bShadow-3 ">
-                <a href="#">Agregar</a>
-                <a href="#">Eliminar</a>
-                <a href="#">Actualizar</a>
+            <img src="https://www.flaticon.com/svg/static/icons/svg/3571/3571518.svg" alt="ICON">
+            <div class="link-1 ">
+                <a href="Principal?accion=mostrar">Actividades</a>
+                <div class="calendar bShadow-3 ">
+                    <a href="calendario.jsp">Agregar</a>
+                </div>
+            </div>
+
+            <div class="link-1">
+                <a href="Equipos.jsp">Productos</a>
+                <div class="calendar bShadow-3 ">
+                    <a href="Principal?accion=insertar">Agregar Producto</a>
+                    <a href="Principal?accion=eliminar">Eliminar Producto</a>
+                    <a href="Principal?accion=modificar">Actualizar Producto</a>
+                </div>
             </div>
         </div>
-    
-  <div class="link-1">
-        <a href="empleados.jsp">Empleados</a>
-        <div class="calendar bShadow-3">
-            <a href="Principal?accion=insertarEmpleado">Agregar</a>
-            <a href="Principal?accion=eliminarEmpleado">Eliminar</a>
-            <a href="Principal?accion=actualizarEmpleado">Actualizar</a>
+
+        <div class="link-1">
+            <a href="Cliente?accion=listar">Clientes</a>
+            <div class="calendar bShadow-3 ">
+                <a href="Cliente?accion=add">Agregar</a>
+                <a href="Cliente?accion=eliminarCliente">Eliminar</a>
+                <a href="Cliente?accion=modificarCliente">Actualizar</a>
+            </div>
         </div>
-    </div>
-        <a href=""><img src="https://www.flaticon.com/svg/static/icons/svg/3530/3530223.svg" alt="USER"></a>
+
+        <div class="link-1">
+            <a href="empleados.jsp">Empleados</a>
+            <div class="calendar bShadow-3">
+                <a href="Principal?accion=insertarEmpleado">Agregar</a>
+                <a href="Principal?accion=eliminarEmpleado">Eliminar</a>
+                <a href="Principal?accion=actualizarEmpleado">Actualizar</a>
+            </div>
+        </div>
+        <div class="link-1">
+            <a href=""><img src="https://www.flaticon.com/svg/static/icons/svg/3530/3530223.svg" alt="USER"></a>
+            <div class="calendar bShadow-3">
+                <a href="perfil.jsp">Configuracion</a>
+                <a href="AcercaDe.jsp">A cerca de</a>
+                <a href="#">Cerrar sesion</a>
+            </div>
+        </div>
     </nav>
 
     <div class="AcercaDe">
@@ -52,8 +59,8 @@
         </div>
         <div class="AcercaDe__Contenido">
             <p>Mantenimiento de Equipos Informaticos 
-            Proyecto realizado con fines educativos
-            Este proyecto fue realizado por </p>
+                Proyecto realizado con fines educativos
+                Este proyecto fue realizado por </p>
             <p>Edgardo Antonio Rodriguez Galicia</p>
             <p>Marcelo Ariel Mendez Castillo</p>
             <p>Alan Emilio Coto Zetino</p>
@@ -71,5 +78,5 @@
             <img src="./img/css.png" alt="css">
         </footer>
     </div>
-    </body>
+</body>
 </html>

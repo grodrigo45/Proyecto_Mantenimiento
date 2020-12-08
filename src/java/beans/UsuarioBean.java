@@ -7,13 +7,30 @@ public class UsuarioBean {
     private String edadUsuario;
     private String direccionUsuario;
     private String telefonoUsuario;
+    private String usuarioConfirmado;
 
-    public UsuarioBean(String nombreUsuario, String apellidoUsuario, String edadUsuario, String direccionUsuario, String telefonoUsuario) {
+    public UsuarioBean( String nombreUsuario, String apellidoUsuario, String edadUsuario, String direccionUsuario, String telefonoUsuario) {
         this.nombreUsuario = nombreUsuario;
         this.apellidoUsuario = apellidoUsuario;
         this.edadUsuario = edadUsuario;
         this.direccionUsuario = direccionUsuario;
         this.telefonoUsuario = telefonoUsuario;
+    }
+
+    public UsuarioBean(String UsuarioConfirmado) {
+        this.usuarioConfirmado = UsuarioConfirmado;
+    }
+
+    public UsuarioBean() {
+       
+    }
+
+    public String getUsuarioConfirmado() {
+        return usuarioConfirmado;
+    }
+
+    public void setUsuarioConfirmado(String UsuarioConfirmado) {
+        this.usuarioConfirmado = UsuarioConfirmado;
     }
 
     public String getNombre() {

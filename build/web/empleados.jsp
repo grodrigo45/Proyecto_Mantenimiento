@@ -1,3 +1,5 @@
+<%@page import="beans.PersonaBean"%>
+<%@page import="dao.PersonaDao"%>
 <%@page import="Conexion.ConexionMantto"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
@@ -37,12 +39,12 @@
                 </div>
             </div>
 
-            <div class="link-1">
-                <a href="clientes.jsp">Clientes</a>
+             <div class="link-1">
+                <a href="Cliente?accion=listar">Clientes</a>
                 <div class="calendar bShadow-3 ">
-                    <a href="#">Agregar</a>
-                    <a href="#">Eliminar</a>
-                    <a href="#">Actualizar</a>
+                    <a href="Cliente?accion=add">Agregar</a>
+                    <a href="Cliente?accion=eliminarCliente">Eliminar</a>
+                    <a href="Cliente?accion=modificarCliente">Actualizar</a>
                 </div>
             </div>
 
@@ -55,14 +57,20 @@
                 </div>
             </div>
 
-            <a href="Principal?accion=perfilUsuario"><img src="https://www.flaticon.com/svg/static/icons/svg/3530/3530223.svg" alt="USER"></a>
-        </nav>
+            <div class="link-1">
+                <a href=""><img src="https://www.flaticon.com/svg/static/icons/svg/3530/3530223.svg" alt="USER"></a>
+                <div class="calendar bShadow-3">
+                    <a href="perfil.jsp">Configuracion</a>
+                    <a href="AcercaDe.jsp">A cerca de</a>
+                    <a href="#">Cerrar sesion</a>
+                </div>
+            </div>        </nav>
 
         <div class="content">
 
-            <h1 class="title"> Productos </h1>
+            <h1 class="title"> Empleados </h1>
 
-            <div class="menu-box">
+         <div class="menu-box">
                 <div class="box1 bShadow-2 bShadow-5h">
                     <div class="boxTxt">
                         <p>Total de Empleados</p>
@@ -93,20 +101,22 @@
                 <div class="box1 bShadow-2 bShadow-5h">
                     <div class="boxTxt">
                         <p>Trabajos realizados</p>
+                      
                         <h2>
-                            <%=empleados.getTotalEmpleados()%>
+                           xd
                         </h2>
                     </div>
                     <img src="https://www.flaticon.com/svg/static/icons/svg/3330/3330972.svg" alt="">
                 </div>
 
-                <div class="box3 bShadow-2">
-                    <h2>500</h2>
+               <div class="box3 bShadow-2">
+                   
+                    <h2>xd</h2>
                     <img src="https://www.flaticon.com/svg/static/icons/svg/3330/3330972.svg" alt="">
                 </div>
 
-                <div class="box4 bShadow-2 bShadow-5h">
-                    <h2>100%</h2>
+                <div class="box4 bShadow-2 bShadow-5h">   
+                    <h2>xd></h2>
                     <img src="https://www.flaticon.com/svg/static/icons/svg/3330/3330972.svg" alt="">
                 </div>
             </div>
@@ -120,7 +130,7 @@
                     </tr>
                     <tr></tr><tr></tr>
                     <tr></tr>
-                    <%
+<%
                         EmpleadosDao dao = new EmpleadosDao();
                         List<EmpleadosBean> list = EmpleadosDao.listarEmpleados();
                         Iterator<EmpleadosBean> iter = list.iterator();
@@ -129,8 +139,8 @@
                         while (iter.hasNext()) {
                             empleado = iter.next();
 
-                    %>
-                    <tr class="col-t">
+%>
+                    <tr class="col-t">                  
                         <td><%= empleado.getIdEmpleado()%></td>
                         <td><%= empleado.getRangoEstudio()%></td>
                         <td><%= empleado.getTipoEmpleado()%></td>

@@ -22,7 +22,7 @@
     <div class="login slide-in-blurred-top">
         <h1 class="tituloLogin">¡Bienvenido!</h1>
         <h5 class="subtituloLogin">Ingresa tus datos para iniciar sesión</h5>
-        <form action="<%=request.getContextPath()%>/Principal" method="post" class="containerForm" onsubmit="return validate()">
+        <form action="Principal?accion=iniciarSesion" method="post" class="containerForm" onsubmit="return validate()">
             <input type="text" placeholder="Ingrese su nombre de usuario o correo" id="usuarioLogin"
                    name="usernameLogin" class="usuarioLogin">
             <input type="password" placeholder="Ingrese su contraseña" id="passwordLogin" name="passwordLogin"

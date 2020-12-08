@@ -6,6 +6,7 @@ import dao.EquiposDao;
 import beans.LoginBean;
 import dao.LoginDao;
 import beans.CalendarioBean;
+import beans.UsuarioBean;
 import dao.CalendarioDao;
 
 import javax.servlet.RequestDispatcher;
@@ -26,27 +27,36 @@ import java.util.logging.Logger;
 
 @WebServlet(name = "servlets.Principal")
 public class Principal extends HttpServlet {
-    
+
     CalendarioDao calendarioDao = new CalendarioDao();
-    
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        
+
         String accion = req.getParameter("accion");
         String username = req.getParameter("usernameLogin");
         String password = req.getParameter("passwordLogin");
-        
-        LoginBean loginBean = new LoginBean();
-        
-        loginBean.setUsername(username);
-        loginBean.setPassword(password);
-        
-        LoginDao loginDao = new LoginDao();
-        String autorizacion = loginDao.validar(loginBean);
-        
-        if (autorizacion.equals("correcto")) {
-            res.sendRedirect("empleados.jsp");
-            
+
+        if (accion.equals("iniciarSesion")) {
+            LoginBean loginBean = new LoginBean();
+            UsuarioBean usuario = new UsuarioBean();
+
+            loginBean.setUsername(username);
+            loginBean.setPassword(password);
+
+            usuario.setUsuarioConfirmado(username);
+            LoginDao loginDao = new LoginDao();
+            String autorizacion = loginDao.validar(loginBean);
+
+            if (autorizacion.equals("correcto")) {
+                res.sendRedirect("empleados.jsp");
+
+            } else {
+                req.setAttribute("error", autorizacion);
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
+                requestDispatcher.include(req, res);
+            }
+
         } else if (accion.equals("insertar")) {
             insertarProducto(req, res);
             res.sendRedirect(req.getContextPath() + "/Principal?accion=insertar");
@@ -59,15 +69,15 @@ public class Principal extends HttpServlet {
         } else if (accion.equals("insertarEmpleadoForm")) {
             insertarEmpleado(req, res);
             insertarPersona(req, res);
-            res.sendRedirect(req.getContextPath() + "/Principal?accion=insertarEmpleado");    
+            res.sendRedirect(req.getContextPath() + "/Principal?accion=insertarEmpleado");
         } else if (accion.equals("eliminarEmpleadoForm")) {
             eliminarEmpleado(req, res);
             res.sendRedirect(req.getContextPath() + "/Principal?accion=eliminarEmpleado");
-            
+
         } else if (accion.equals("modificarEmpleadoF")) {
             actualizarEmpleados(req, res);
             res.sendRedirect(req.getContextPath() + "/Principal?accion=actualizarEmpleado");
-            
+
         } else if (accion.equals("mostrar")) {
             try {
                 mostrarCalendario(req, res);
@@ -75,20 +85,16 @@ public class Principal extends HttpServlet {
                 Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
             }
             res.sendRedirect(req.getContextPath() + "/Principal?accion=mostrar");
-            
+
         } else if (accion.equals("editar")) {
             editarCalendario(req, res);
             res.sendRedirect(req.getContextPath() + "/Principal?accion=editar");
         } else if (accion.equals("registrar")) {
             registrarCalendario(req, res);
             res.sendRedirect(req.getContextPath() + "/Principal?accion=registrar");
-        } else {
-            req.setAttribute("error", autorizacion);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
-            requestDispatcher.include(req, res);
         }
     }
-    
+
     private void mostrarCalendario(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/vistaCalendario/mostrar.jsp");
@@ -96,7 +102,7 @@ public class Principal extends HttpServlet {
         request.setAttribute("lista", listaCalendario);
         dispatcher.forward(request, response);
     }
-    
+
     private void registrarCalendario(HttpServletRequest request, HttpServletResponse response) {
         String url = "jdbc:sqlserver://localhost:1433;databaseName=DS_Mantto_Equipo;user=sa;password = 1234;";
         String fechaRecibido = request.getParameter("fechaRecibido");
@@ -104,7 +110,7 @@ public class Principal extends HttpServlet {
         String estado = request.getParameter("estado");
         int idMantenimiento = Integer.parseInt(request.getParameter("idMantenimiento"));
         String nombreUsuario = request.getParameter("nombreUsuario");
-        
+
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             try (Connection con = DriverManager.getConnection(url)) {
@@ -135,27 +141,27 @@ public class Principal extends HttpServlet {
             ex.printStackTrace();
         }
     }
-    
+
     private void showEditarCalendario(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
         CalendarioBean calendarioBean = calendarioDao.obtenerPorId(Integer.parseInt(request.getParameter("id")));
         request.setAttribute("calendario", calendarioBean);
-        
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/vistaCalendario/editar.jsp");
         dispatcher.forward(request, response);
     }
-    
+
     private void editarCalendario(HttpServletRequest request, HttpServletResponse response) {
         String url = "jdbc:sqlserver://localhost:1433;databaseName=DS_Mantto_Equipo;user=sa;password = 1234;";
-        
+
         int idCalendario = Integer.parseInt(request.getParameter("id"));
         String fechaRecibido = request.getParameter("fechaRecibido");
         String fechaEntrega = request.getParameter("fechaEntrega");
         String estado = request.getParameter("estado");
         int idMantenimiento = Integer.parseInt(request.getParameter("idMantenimiento"));
         String nombreUsuario = request.getParameter("nombreUsuario");
-        
+
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             try (Connection con = DriverManager.getConnection(url)) {
@@ -180,18 +186,17 @@ public class Principal extends HttpServlet {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
+
     private void eliminarCalendario(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
-        
+
         CalendarioBean calendarioBean
                 = calendarioDao.obtenerPorId(Integer.parseInt(request.getParameter("id")));
         calendarioDao.eliminar(calendarioBean);
         mostrarCalendario(request, response);
-        
+
     }
-    
+
     public void insertarProducto(HttpServletRequest request, HttpServletResponse response) {
         String NombreProd = request.getParameter("txtnombre");
         String Descripcion = request.getParameter("txtdes");
@@ -216,7 +221,7 @@ public class Principal extends HttpServlet {
             ex.printStackTrace();
         }
     }
-    
+
     public void eliminarProducto(HttpServletRequest request, HttpServletResponse response) {
         int idProducto = Integer.parseInt(request.getParameter("txtid"));
         String url = "jdbc:sqlserver://localhost:1433;databaseName=DS_Mantto_Equipo;user=sa;password = 1234;";
@@ -232,7 +237,7 @@ public class Principal extends HttpServlet {
             ex.printStackTrace();
         }
     }
-    
+
     public void modificarProducto(HttpServletRequest request, HttpServletResponse response) {
         int idProducto = Integer.parseInt(request.getParameter("txtid"));
         String NombreProd = request.getParameter("txtNombre");
@@ -254,13 +259,13 @@ public class Principal extends HttpServlet {
             ex.printStackTrace();
         }
     }
-    
+
     public void insertarEmpleado(HttpServletRequest request, HttpServletResponse response) {
         String tipoEmpleado = request.getParameter("tipoEmpleadoTxt");
         String rangoEstudio = request.getParameter("rangoEstudioTxt");
         String trabajosHechos = request.getParameter("trabajosHechosTxt");
         String idPersona = request.getParameter("idPersonaTxt");
-        
+
         String url = "jdbc:sqlserver://localhost:1433;databaseName=DS_Mantto_Equipo;user=sa;password = 1234;";
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -282,7 +287,7 @@ public class Principal extends HttpServlet {
             ex.printStackTrace();
         }
     }
-    
+
     public void insertarPersona(HttpServletRequest request, HttpServletResponse response) {
         String nombre = request.getParameter("nombrePersonaTxt");
         String apellido = request.getParameter("apellidoPersonaTxt");
@@ -290,7 +295,7 @@ public class Principal extends HttpServlet {
         String telefono = request.getParameter("telPersonaTxt");
         String direccion = request.getParameter("dirPersonaTxt");
         String dui = request.getParameter("duiPersonaTxt");
-        
+
         String url = "jdbc:sqlserver://localhost:1433;databaseName=DS_Mantto_Equipo;user=sa;password = 1234;";
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -314,7 +319,7 @@ public class Principal extends HttpServlet {
             ex.printStackTrace();
         }
     }
-    
+
     public void eliminarEmpleado(HttpServletRequest req, HttpServletResponse res) {
         int idEmpleado = Integer.parseInt(req.getParameter("idTxt"));
         String url = "jdbc:sqlserver://localhost:1433;databaseName=DS_Mantto_Equipo;user=sa;password =1234;";
@@ -329,18 +334,18 @@ public class Principal extends HttpServlet {
         } catch (SQLException | ClassNotFoundException ex) {
             ex.printStackTrace();
         }
-        
+
     }
-    
+
     public void actualizarEmpleados(HttpServletRequest req, HttpServletResponse res) {
-        
+
         int idEmpleado = Integer.parseInt(req.getParameter("idTxt"));
         String tipoEmpleado = req.getParameter("tipoEmpleadoTxt");
         String rangoEstudio = req.getParameter("rangoEstudioTxt");
         String trabajosHechos = req.getParameter("trabajosHechosTxt");
         String idPersona = req.getParameter("idPersonaTxt");
         String url = "jdbc:sqlserver://localhost:1433;databaseName=DS_Mantto_Equipo;user=sa;password = 1234;";
-        
+
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             try (Connection con = DriverManager.getConnection(url)) {
@@ -356,15 +361,15 @@ public class Principal extends HttpServlet {
             ex.printStackTrace();
         }
     }
-    
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
-        
+
         String accion = req.getParameter("accion");
-        
-        if (accion == null) {  
-            req.getRequestDispatcher("index.jsp").forward(req, res);   
+
+        if (accion == null) {
+            req.getRequestDispatcher("index.jsp").forward(req, res);
         } else if ("insertarEmpleado".equals(accion)) {
             RequestDispatcher dispatcher = req.getRequestDispatcher("/vistaEmpleados/insertar.jsp");
             dispatcher.forward(req, res);
@@ -398,7 +403,7 @@ public class Principal extends HttpServlet {
                 req.getSession().removeAttribute("exito");
             }
             req.getRequestDispatcher("/vistaCalendario/editar.jsp").forward(req, res);
-            
+
         } else if (accion.equals("registrar")) {
             if (req.getSession().getAttribute("exito") != null) {
                 req.setAttribute("exito", req.getSession().getAttribute("exito"));

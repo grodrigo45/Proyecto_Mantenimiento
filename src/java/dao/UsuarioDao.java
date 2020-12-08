@@ -20,7 +20,7 @@ public class UsuarioDao {
         conn = cn.getConnection();
 
         List<UsuarioBean> listaInformacion = new ArrayList<UsuarioBean>();
-        String sqlMostrarUsuario = "SELECT Nombre, Apellido, Edad, Direccion, Telefono FROM Persona WHERE Nombre='Edgardo'";
+        String sqlMostrarUsuario = "SELECT Nombre, Apellido, Edad, Direccion, Telefono FROM Persona WHERE NombreUsuario=";
         Statement statement = conn.createStatement();
         ResultSet resulSet = statement.executeQuery(sqlMostrarUsuario);
 
