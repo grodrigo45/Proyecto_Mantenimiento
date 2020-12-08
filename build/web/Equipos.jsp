@@ -27,6 +27,7 @@
             <a href="Principal?accion=insertar">Agregar Producto</a>
             <a href="Principal?accion=eliminar">Eliminar Producto</a>
             <a href="Principal?accion=modificar">Actualizar Producto</a>
+            <a href="Proveedor.jsp">Proveedores</a>
         </div>
     </div>
 
@@ -81,6 +82,7 @@
     <!--<a class="link" href="Principal?accion=insertar">Agregar nuevo Producto</a>
     <a class="link" href="Principal?accion=modificar">Modificar Producto</a>
     <a class="link" href="Principal?accion=eliminar">Eliminar Producto</a>-->
+    <a href="Principal?accion=Cerrarsesion">Cerrar Sesion</a>
 <div class="table">
         <table>
             <tr class="col-t">
