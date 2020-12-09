@@ -1,6 +1,12 @@
 package beans;
 
 public class ClienteBean {
+    
+    private int totalC;
+
+    public ClienteBean(int totalC) {
+        this.totalC = totalC;
+    }
 
     public ClienteBean() {
     }
@@ -13,6 +19,14 @@ public class ClienteBean {
         this.direccion = direccion;
         this.dui = dui;
         this.telefono = telefono;
+    }
+
+    public int getTotalC() {
+        return totalC;
+    }
+
+    public void setTotalC(int totalC) {
+        this.totalC = totalC;
     }
 
     public int getIdCliente() {

@@ -3,6 +3,7 @@
 <head>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+           <link href="./css/bootstrap.css" rel="stylesheet" type="text/css"/>
     <title>Insertar</title>
 </head>
 <body>
@@ -27,7 +28,7 @@
                 <section class="container__button1">
                     <input  class="button" type="submit" value="Insertar">
                 </section>
-                <a class="button" type="button" value="Regresar">Regresar</a>
+                <a href="empleados.jsp" class="btn btn-success" value="Regresar">Regresar</a>
             </div>
         </form>
     </div>

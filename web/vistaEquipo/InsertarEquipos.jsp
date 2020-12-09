@@ -3,6 +3,7 @@
 <head>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+            <link href="./css/bootstrap.css" rel="stylesheet" type="text/css"/>
     <title>Insertar</title>
 </head>
 <body>
@@ -12,12 +13,12 @@
         <form action="Principal?accion=insertar" class="container__form" method="post">
             <input class="input" type="text"name="txtnombre" placeholder="NombreProducto" >
             <input class="input" type="text" name="txtdes" placeholder="Descripcion">
-            <input class="input" type="text" name="txtpro" placeholder="IdProveedor">
+            <input class="input" type="text" name="txtpro" placeholder="IdProveedor (7000)">
             <div class="container__button">
                 <section class="container__button1">
                     <input  class="button" type="submit" value="Insertar">
                 </section>
-                <input class="button" type="button" value="Regresar" onclick="regresar()">
+                <a href="Equipos.jsp" class="btn btn-success" value="Regresar">Regresar</a>
             </div>
         </form>
     </div>

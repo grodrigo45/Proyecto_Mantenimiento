@@ -6,6 +6,7 @@
 package dao;
 
 import Conexion.ConexionMantto;
+import beans.ProveedoresBean;
 import beans.EquiposBean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -48,6 +49,8 @@ public class EquiposDao {
         }
         return listaEquipos;
     }
+    
+   
 }
 
 

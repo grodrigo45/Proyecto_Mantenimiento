@@ -5,6 +5,7 @@
 <head>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+            <link href="./css/bootstrap.css" rel="stylesheet" type="text/css"/>
     <title>Actualizar</title>
 </head>
 <body>
@@ -15,13 +16,13 @@
             <input class="input" type="text" name="txtid" placeholder="Inserte el id del producto que desea modificar">
             <input class="input" type="text" name="txtNombre"  placeholder="Nombre Producto">
             <input class="input" type="text" name="txtdes"   placeholder="Descripcion">
-            <input class="input" type="text" name="txtpro" placeholder="Id Proveedor">
+            <input class="input" type="text" name="txtpro" placeholder="Id Proveedor (7000)">
             
             <div class="container__button">
                 <section class="container__button--button1">
                     <input class="button" type="submit" value="Actualizar Dato">
                 </section>
-                <input class="button" type="button" value="Regresar" onclick="regresar()">
+                <a href="Equipos.jsp" class="btn btn-success" value="Regresar">Regresar</a>
             </div>
         </form>
     </div>

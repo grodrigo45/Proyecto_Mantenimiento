@@ -6,8 +6,10 @@ import dao.EquiposDao;
 import beans.LoginBean;
 import dao.LoginDao;
 import beans.CalendarioBean;
+import beans.MantenimientoBean;
 import beans.UsuarioBean;
 import dao.CalendarioDao;
+import dao.MantenimientoDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -24,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "servlets.Principal")
 public class Principal extends HttpServlet {
@@ -361,7 +365,6 @@ public class Principal extends HttpServlet {
             ex.printStackTrace();
         }
     }
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
@@ -411,7 +414,15 @@ public class Principal extends HttpServlet {
                 req.getSession().removeAttribute("exito");
             }
             req.getRequestDispatcher("calendario.jsp").forward(req, res);
-        } else {
+        }else if(accion.equals("Cerrarsesion")){
+            HttpSession session = req.getSession(false);
+            if (session != null) {
+            session.removeAttribute("username");
+             
+            RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+            dispatcher.forward(req, res);
+        }
+        }else {
             try {
                 switch (accion) {
                     case "mostrar":

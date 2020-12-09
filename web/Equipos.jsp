@@ -1,3 +1,8 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="Conexion.ConexionMantto"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="beans.EquiposBean"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
@@ -27,9 +32,9 @@
                     <a href="Principal?accion=insertar">Agregar Producto</a>
                     <a href="Principal?accion=eliminar">Eliminar Producto</a>
                     <a href="Principal?accion=modificar">Actualizar Producto</a>
+                    <a href="Proveedor.jsp">Proveedores</a>
                 </div>
             </div>
-
             <div class="link-1">
                 <a href="Cliente?accion=listar">Clientes</a>
                 <div class="calendar bShadow-3 ">
@@ -66,30 +71,30 @@
             <div class="menu-box">
                 <div class="box1 bShadow-2 bShadow-5h">
                     <div class="boxTxt">
+                        <% Connection con;
+                            ConexionMantto cn = new ConexionMantto();
+                            con = cn.getConnection();
+                            EquiposBean equipo = null;
+                            //mostrar el total de registros
+                            String sql = "SELECT COUNT(*) AS Total FROM Productos";
+                            Statement statement = con.createStatement();
+                            ResultSet rs = statement.executeQuery(sql);
+
+                            if (rs.next()) {
+                                int total = rs.getInt("Total");
+                                equipo = new EquiposBean(total);
+                            } else {
+                                System.out.println("Ningun resultado encontrado");
+                            }
+                            con.close();
+                            rs.close();
+                        %>
                         <p>Total de equipos</p>
-                        <h2>100</h2>
+                        <h2><%= equipo.getTotal()%></h2>
                     </div>
                     <img src="https://www.flaticon.com/svg/static/icons/svg/3330/3330972.svg" alt="">
                 </div>
-
-                <div class="box2 bShadow-2 bShadow-5h">
-                    <h2>50%</h2>
-                    <img src="https://www.flaticon.com/svg/static/icons/svg/3330/3330972.svg" alt="">
-                </div>
-
-                <div class="box3 bShadow-2">
-                    <h2>500</h2>
-                    <img src="https://www.flaticon.com/svg/static/icons/svg/3330/3330972.svg" alt="">
-                </div>
-
-                <div class="box4 bShadow-2 bShadow-5h">
-                    <h2>100%</h2>
-                    <img src="https://www.flaticon.com/svg/static/icons/svg/3330/3330972.svg" alt="">
-                </div>
             </div>
-            <!--<a class="link" href="Principal?accion=insertar">Agregar nuevo Producto</a>
-            <a class="link" href="Principal?accion=modificar">Modificar Producto</a>
-            <a class="link" href="Principal?accion=eliminar">Eliminar Producto</a>-->
             <div class="table">
                 <table>
                     <tr class="col-t">

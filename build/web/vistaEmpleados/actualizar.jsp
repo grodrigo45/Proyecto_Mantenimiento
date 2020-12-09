@@ -5,6 +5,7 @@
 <head>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+     <link href="./css/bootstrap.css" rel="stylesheet" type="text/css"/>
     <title>Actualizar</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
                 <section class="container__button--button1">
                     <input class="button" type="submit" value="Actualizar Dato">
                 </section>
-                <input class="button" type="button" value="Regresar">
+                  <a href="empleados.jsp" class="btn btn-success" value="Regresar">Regresar</a>
             </div>
         </form>
     </div>

@@ -5,7 +5,9 @@ public class EquiposBean {
     private String NombreProd;
     private String Descripcion;
     private int idProveedor;
-
+    private int total;
+    private int totalP;
+    
     public EquiposBean(int idProducto,
                           String NombreProd,
                           String Descripcion,
@@ -17,10 +19,29 @@ public class EquiposBean {
 
     }
 
-    public EquiposBean(){
-        //Constructor vacio
+    public EquiposBean() {
     }
 
+    public int getTotalP() {
+        return totalP;
+    }
+
+    public void setTotalP(int totalP) {
+        this.totalP = totalP;
+    }    
+
+    public EquiposBean(int total){
+        this.total = total;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+    
     public int getIdProducto() {
         return idProducto;
     }

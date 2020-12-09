@@ -20,6 +20,7 @@
     <head>
         <title>Lista~Evento</title>
         <link rel="stylesheet" type="text/css" href="./css/crudUser.css">
+        <link href="./css/bootstrap.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <nav class="navMenu bShadow-2">
@@ -34,6 +35,7 @@
                 <div class="calendar bShadow-3 ">
                     <a href="empleados.jsp">Inicio</a>
                     <a href="Principal?accion=registrar">Ingresar Evento</a>
+                     <a href="Mantenimiento.jsp">Mantenimiento</a>
                 </div>
             </div>
 
@@ -207,8 +209,8 @@
                             <td><c:out value="${calendario.estado}"/></td>
                             <td><c:out value="${calendario.idMantenimiento}"/></td>
                             <td><c:out value="${calendario.nombreUsuario}"/></td>
-                            <td><a href="Principal?accion=showedit&id=<c:out value="${calendario.idCalendario}"/>">Editar</a></td>
-                            <td><a href="Principal?accion=eliminarCalendario&id=<c:out value="${calendario.idCalendario}"/>">Eliminar</a> </td>
+                            <td><a class="btn btn-warning" href="Principal?accion=showedit&id=<c:out value="${calendario.idCalendario}"/>">Editar</a></td>
+                            <td><a class="btn btn-danger" href="Principal?accion=eliminarCalendario&id=<c:out value="${calendario.idCalendario}"/>">Eliminar</a> </td>
                         </tr>
                     </c:forEach>
                 </table>

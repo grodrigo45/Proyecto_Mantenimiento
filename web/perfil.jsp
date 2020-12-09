@@ -14,8 +14,6 @@
         <link rel="stylesheet" href="./css/perfil.css">
     </head>
     <body>
-
-
         <%
             Connection con;
             ConexionMantto cn = new ConexionMantto();
@@ -38,8 +36,6 @@
             con.close();
             rs.close();
 %>
-
-
         <div class="container">
             <nav class="verticalMenu">
 

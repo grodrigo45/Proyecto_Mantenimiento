@@ -50,7 +50,7 @@
                     <input type="text" name="estado" 
                            class="add-event-day-field" placeholder="Estado">
                     <input type="number" name="idMantenimiento" 
-                           class="add-event-day-field" placeholder="ID Mantenimiento">
+                           class="add-event-day-field" placeholder="ID Mantenimiento(5000)">
                     <input type="text" name="nombreUsuario" 
                            class="add-event-day-field" placeholder="Nombre usuario">
                     <input class="fa fa-plus-circle cursor-pointer add-event-day-field-btn"

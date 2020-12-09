@@ -97,28 +97,6 @@
                     </div>
                     <img src="https://www.flaticon.com/svg/static/icons/svg/3330/3330972.svg" alt="">
                 </div>
-
-                <div class="box1 bShadow-2 bShadow-5h">
-                    <div class="boxTxt">
-                        <p>Trabajos realizados</p>
-                      
-                        <h2>
-                           xd
-                        </h2>
-                    </div>
-                    <img src="https://www.flaticon.com/svg/static/icons/svg/3330/3330972.svg" alt="">
-                </div>
-
-               <div class="box3 bShadow-2">
-                   
-                    <h2>xd</h2>
-                    <img src="https://www.flaticon.com/svg/static/icons/svg/3330/3330972.svg" alt="">
-                </div>
-
-                <div class="box4 bShadow-2 bShadow-5h">   
-                    <h2>xd></h2>
-                    <img src="https://www.flaticon.com/svg/static/icons/svg/3330/3330972.svg" alt="">
-                </div>
             </div>
             <div class="table">
                 <table>
